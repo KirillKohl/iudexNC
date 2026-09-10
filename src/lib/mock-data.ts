@@ -1,10 +1,10 @@
-import type { Assessment, ClaimReport, Clause } from "@/lib/types"
+import type { Assessment, ClaimReport, Clause, CoverageCase } from "@/lib/types"
 
 /**
  * Fiktiver Vertragsauszug. Rein zu Demozwecken – keine echten
  * Versicherungsbedingungen und keine Rechtsberatung.
  */
-export const contractClauses: Clause[] = [
+const contractClauses: Clause[] = [
   {
     id: "clause-1",
     number: 1,
@@ -32,7 +32,7 @@ export const contractClauses: Clause[] = [
 ]
 
 /** Fiktive Schadensmeldung zum Vorgang. */
-export const claimReport: ClaimReport = {
+const claimReport: ClaimReport = {
   reference: "RS-2026-04817",
   submittedAt: "2026-09-08",
   claimant: "M. Berger",
@@ -43,7 +43,7 @@ export const claimReport: ClaimReport = {
  * Mockhafte Deckungseinschätzung. Jede Citation verweist über `clauseId`
  * auf eine Klausel in `contractClauses`.
  */
-export const assessment: Assessment = {
+const assessment: Assessment = {
   status: "unclear",
   confidence: 58,
   summary:
@@ -74,4 +74,11 @@ export const assessment: Assessment = {
         "Kenntnis am 25.08.2026, Meldung am 08.09.2026 – die Vier-Wochen-Frist ist gewahrt, hieraus ergibt sich kein Deckungshindernis.",
     },
   ],
+}
+
+/** Fiktiver Demo-Vorgang für die Ansicht. */
+export const demoCase: CoverageCase = {
+  clauses: contractClauses,
+  claimReport,
+  assessment,
 }
